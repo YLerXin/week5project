@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method ="POST" action = "/secret">
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td><input type = "text" name ="username" required></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type = "password" name ="password" required></td>
+            </tr>
+            <tr th:if="${captchaRequired}">
+                <td>CAPTCHA: What is 2 + 2?</td>
+                <td><input type="text" name="captcha" required></td>
+            </tr>
+            <tr>
+                <td><button type = "submit">Login</button></td>
+            </tr>
+        </table>
+    </form>
+    <div th:if="${error}" style="color:red;">
+        <p th:text="${error}"></p>
+    </div>
+</body>
+</html>
